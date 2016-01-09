@@ -1,9 +1,16 @@
 'use strict';
 const got = require('got');
-let apiURL = 'kiwi-api.herokuapp.com/api/v1/fetch/courselist';
+let apiURLCourselist = 'kiwi-api.herokuapp.com/api/v1/fetch/courselist';
+let apiURLCourseserial = 'kiwi-api.herokuapp.com/api/v1/fetch/courseserials';
 
-got.put(apiURL).then(response => {
-  console.log(response.body);
+got.put(apiURLCourselist).then(response => {
+  console.log(`Courselist: ${response.body}`);
+}).catch(error => {
+  if (error) throw error;
+});
+
+got.put(apiURLCourseserial).then(response => {
+  console.log(`Courseserial: ${response.body}`);
 }).catch(error => {
   if (error) throw error;
 });
